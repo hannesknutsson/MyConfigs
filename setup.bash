@@ -1,7 +1,6 @@
 #/bin/bash
 #
 #	Creates links from the home directory to the configuration files in the configs directory
-#
 #	Run this script from the directory in which it is located or fix the script to support otherwise :))))))
 
 WD=`pwd`
