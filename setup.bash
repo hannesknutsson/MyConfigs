@@ -14,5 +14,6 @@ ln -sf $CONF_PATH/.vimrc 		$HOME/.vimrc
 ln -sf $CONF_PATH/.gitconfig 		$HOME/.gitconfig
 ln -sf $CONF_PATH/.ssh/known_hosts 	$HOME/.ssh/known_hosts
 ln -sf $CONF_PATH/.ssh/config 		$HOME/.ssh/config
+ln -sf $CONF_PATH/.selected_editor	$HOME/.selected_editor
 
 echo "Done :)"
