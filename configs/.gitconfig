@@ -9,7 +9,6 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
-	whitespace = cr-at-eol
 
 [status]
 	showUntrackedFiles = all
