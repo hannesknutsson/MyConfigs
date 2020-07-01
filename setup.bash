@@ -11,6 +11,7 @@ CONF_PATH=$WD/$RELATIVE_CONF_PATH
 echo "Creating sym links for config files from $HOME to $CONF_PATH"
 
 ln -sf $CONF_PATH/.vimrc 		$HOME/.vimrc
+ln -sf $CONF_PATH/.ideavimrc 		$HOME/.ideavimrc
 
 ln -sf $CONF_PATH/.gitconfig 		$HOME/.gitconfig
 ln -sf $CONF_PATH/.gitignore_global	$HOME/.gitignore_global
