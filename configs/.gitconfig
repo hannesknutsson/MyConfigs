@@ -5,3 +5,17 @@
 [credential "https://github.com"]
 	username = hannesknutsson
 	helper = store
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	whitespace = cr-at-eol
+
+[status]
+	showUntrackedFiles = all
+
+[diff]
+	renames = copies
+
+[tag]
+	sort = version:refname
