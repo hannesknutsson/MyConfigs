@@ -2,5 +2,6 @@
 	email = hannes.knutsson96@gmail.com
 	name = Hanke
 
-[credential]
-	helper = manager
+[credential "https://github.com"]
+	username = hannesknutsson
+	helper = store
