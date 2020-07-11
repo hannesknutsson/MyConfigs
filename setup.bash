@@ -15,6 +15,7 @@ ln -sf $CONF_PATH/.vimrc 		$HOME/.vimrc
 ln -sf $CONF_PATH/.gitconfig 		$HOME/.gitconfig
 ln -sf $CONF_PATH/.gitignore_global	$HOME/.gitignore_global
 
+mkdir $HOME/.ssh
 ln -sf $CONF_PATH/.ssh/known_hosts 	$HOME/.ssh/known_hosts
 ln -sf $CONF_PATH/.ssh/config 		$HOME/.ssh/config
 
