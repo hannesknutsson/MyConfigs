@@ -22,4 +22,8 @@ ln -sf $CONF_PATH/.ssh/config 		$HOME/.ssh/config
 
 ln -sf $CONF_PATH/.selected_editor	$HOME/.selected_editor
 
+#Set 600 to all config files and 700 to all sub directories
+find $CONF_PATH -type f -exec chmod 600 -- {} +
+find $CONF_PATH -type d -exec chmod 700 -- {} +
+
 echo "Done :)"
