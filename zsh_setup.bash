@@ -14,4 +14,4 @@ yum install -y zsh wget
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 #Change default shell
-chsh -s /bin/zsh
+usermod -s /bin/zsh $USER

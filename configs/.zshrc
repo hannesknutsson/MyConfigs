@@ -99,4 +99,5 @@ source $ZSH/oh-my-zsh.sh
 
 #ABOVE STUFF IS SET UP BY OH MY ZSH (???) my configs below this line.
 alias ubuntu="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; bash\""
+alias centos="docker run -it --rm centos:latest bash -c \"yum update -y ; bash\""
 
