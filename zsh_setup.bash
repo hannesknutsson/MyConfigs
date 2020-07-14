@@ -6,13 +6,12 @@
 #
 
 #Install ZSH (and some other stuff :D)
-apt install -y zsh wget vim
+apt install -y zsh wget
+yum install -y zsh wget
 
-#Install Oh My Zsh!
+
+#Install Oh My ZSH!
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
-#Install required fonts
-apt-get install -y fonts-powerline
-dnf install powerline-fonts
-
+#Change default shell
 chsh -s /bin/zsh
