@@ -9,10 +9,10 @@
 apt install -y zsh wget vim
 
 #Install Oh My Zsh!
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 #Install required fonts
 apt-get install -y fonts-powerline
 dnf install powerline-fonts
 
-#chsh -s /bin/zsh #Commented out because the installer solves this anyway...
+chsh -s /bin/zsh

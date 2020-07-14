@@ -108,5 +108,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #ABOVE STUFF IS SET UP BY OH MY ZSH (???) my configs below this line.
-alias ubuntu="docker run -it --rm ubuntu:latest"
+alias ubuntu="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; bash\""
 
