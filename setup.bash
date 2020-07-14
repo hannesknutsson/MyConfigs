@@ -69,6 +69,10 @@ fi
 link_conf_file	$CONF_PATH/.ssh/known_hosts 	$HOME/.ssh/known_hosts
 link_conf_file	$CONF_PATH/.ssh/config 		$HOME/.ssh/config
 
+#ZSH ---------------------------------------------------------------------------
+echo -e "\n * ZSH..."
+link_conf_file	$CONF_PATH/.zshrc		$HOME/.zshrc
+
 #OTHER -------------------------------------------------------------------------
 echo -e  "\n * Misc configs..."
 link_conf_file	$CONF_PATH/.selected_editor	$HOME/.selected_editor
