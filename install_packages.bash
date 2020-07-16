@@ -5,12 +5,12 @@
 
 if [[ `command -v apt` ]]
 then
-	echo "apt detected. Installing packages using apt..."
+	echo -e "\n\t* apt detected. Installing packages using apt...\n"
 	apt install -y `cat packages`
 elif [[ `command -v yum` ]]
 then
-	echo "yum detected. Installing packages using yum..."
+	echo -e "\n\t* yum detected. Installing packages using yum...\n"
 	yum install -y --skip-broken `cat packages`
 else
-	echo "Could not find any package manager. Canceling..."
+	echo -e "\n\t* Could not find any package manager. Canceling...\n"
 fi
