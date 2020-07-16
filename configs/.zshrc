@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 alias ubuntu="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; bash\""
 alias centos="docker run -it --rm centos:latest bash -c \"yum update -y ; bash\""
 
-alias ubuntu_full="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; apt install -y vim git wget zsh ; cd ; git clone https://github.com/hannesknutsson/MyConfigs.git ; cd MyConfigs ; bash oh-my-zsh_install.bash ; bash setup.bash ; cd ; zsh\""
-alias centos_full="docker run -it --rm centos:latest bash -c \"yum update -y ; yum install -y vim git wget zsh ; cd ; git clone https://github.com/hannesknutsson/MyConfigs.git ; cd MyConfigs ; bash oh-my-zsh_install.bash ; bash setup.bash ; cd ; zsh\""
+alias ubuntu_full="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; apt install -y vim git wget zsh ; cd ; git clone https://github.com/hannesknutsson/MyConfigs.git ; cd MyConfigs ; bash install_oh-my-zsh.bash ; bash setup.bash ; cd ; zsh\""
+alias centos_full="docker run -it --rm centos:latest bash -c \"yum update -y ; yum install -y vim git wget zsh ; cd ; git clone https://github.com/hannesknutsson/MyConfigs.git ; cd MyConfigs ; bash install_oh-my-zsh.bash ; bash setup.bash ; cd ; zsh\""
 
 alias ll="ls -al"
