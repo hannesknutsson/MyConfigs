@@ -73,6 +73,10 @@ link_conf_file	$CONF_PATH/.ssh/config 		$HOME/.ssh/config
 echo -e "\n * ZSH..."
 link_conf_file	$CONF_PATH/.zshrc		$HOME/.zshrc
 
+#BASH --------------------------------------------------------------------------
+echo -e "\n * BASH..."
+link_conf_file	$CONF_PATH/.bashrc		$HOME/.bashrc
+
 #OTHER -------------------------------------------------------------------------
 echo -e  "\n * Misc configs..."
 link_conf_file	$CONF_PATH/.selected_editor	$HOME/.selected_editor
