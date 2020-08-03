@@ -98,10 +98,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #ABOVE STUFF IS SET UP BY OH MY ZSH (???) my configs below this line.
-alias ubuntu="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; bash\""
-alias centos="docker run -it --rm centos:latest bash -c \"yum update -y ; bash\""
-
-alias ubuntu_full="docker run -it --rm ubuntu:latest bash -c \"apt update -y ; apt upgrade -y ; apt install -y git ; cd ; git clone https://github.com/hannesknutsson/MyConfigs.git ; cd MyConfigs ; bash install_packages.bash ; bash install_oh-my-zsh.bash ; bash setup.bash ; cd ; zsh\""
-alias centos_full="docker run -it --rm centos:latest bash -c \"yum update -y ; yum install -y git zsh ; cd ; git clone https://github.com/hannesknutsson/MyConfigs.git ; cd MyConfigs ; bash install_packages.bash ; bash install_oh-my-zsh.bash ; bash setup.bash ; cd ; zsh\""
-
-alias ll="ls -al"
+. ~/.aliases
