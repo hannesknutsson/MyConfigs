@@ -1,4 +1,7 @@
-[user]
+[include]
+	path = ~/.gitconfig_local
+
+[user "https://github.com"]
 	email = hannes.knutsson96@gmail.com
 	name = Hanke
 
@@ -18,3 +21,9 @@
 
 [tag]
 	sort = version:refname
+
+[color]
+	ui = auto
+
+[push]
+	default = simple
