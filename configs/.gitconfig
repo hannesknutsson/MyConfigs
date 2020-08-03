@@ -1,7 +1,7 @@
 [include]
 	path = ~/.gitconfig_local
 
-[user "https://github.com"]
+[user]
 	email = hannes.knutsson96@gmail.com
 	name = Hanke
 
