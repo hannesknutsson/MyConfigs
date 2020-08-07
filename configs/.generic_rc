@@ -4,7 +4,7 @@
 . ~/.aliases
 
 # Include any local aliases if present
-if [ -f /etc/bashrc ]; then
+if [ -f ~/.aliases_local ]; then
 	. ~/.aliases_local
 fi
 
