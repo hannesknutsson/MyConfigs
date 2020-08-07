@@ -40,13 +40,13 @@ echo -e "\nLinking configs from $HOME to $CONF_PATH"
 
 #VIM ---------------------------------------------------------------------------
 echo -e "\n * VIM..."
-link_conf_file	$CONF_PATH/.vimrc 		$HOME/.vimrc
-link_conf_file	$CONF_PATH/.ideavimrc 		$HOME/.ideavimrc
+link_conf_file	$CONF_PATH/.vimrc 			$HOME/.vimrc
+link_conf_file	$CONF_PATH/.ideavimrc 			$HOME/.ideavimrc
 
 #GIT ---------------------------------------------------------------------------
 echo -e "\n * GIT..."
-link_conf_file	$CONF_PATH/.gitconfig 		$HOME/.gitconfig
-link_conf_file	$CONF_PATH/.gitignore_global	$HOME/.gitignore_global
+link_conf_file	$CONF_PATH/.gitconfig 			$HOME/.gitconfig
+link_conf_file	$CONF_PATH/.gitignore_global		$HOME/.gitignore_global
 
 #SSH ---------------------------------------------------------------------------
 echo -e "\n * SSH..."
@@ -66,21 +66,21 @@ if [ ! -f "$SSH_CONFIG_LOCAL" ]; then
     chmod 600 $SSH_CONFIG_LOCAL
 fi
 
-link_conf_file	$CONF_PATH/.ssh/known_hosts 	$HOME/.ssh/known_hosts
-link_conf_file	$CONF_PATH/.ssh/config 		$HOME/.ssh/config
+link_conf_file	$CONF_PATH/.ssh/known_hosts_global	$HOME/.ssh/known_hosts_global
+link_conf_file	$CONF_PATH/.ssh/config 			$HOME/.ssh/config
 
 #ZSH ---------------------------------------------------------------------------
 echo -e "\n * ZSH..."
-link_conf_file	$CONF_PATH/.zshrc		$HOME/.zshrc
+link_conf_file	$CONF_PATH/.zshrc			$HOME/.zshrc
 
 #BASH --------------------------------------------------------------------------
 echo -e "\n * BASH..."
-link_conf_file	$CONF_PATH/.bashrc		$HOME/.bashrc
+link_conf_file	$CONF_PATH/.bashrc			$HOME/.bashrc
 
 #OTHER -------------------------------------------------------------------------
 echo -e  "\n * Misc configs..."
-link_conf_file	$CONF_PATH/.selected_editor	$HOME/.selected_editor
-link_conf_file	$CONF_PATH/.aliases		$HOME/.aliases
+link_conf_file	$CONF_PATH/.selected_editor		$HOME/.selected_editor
+link_conf_file	$CONF_PATH/.aliases			$HOME/.aliases
 
 #Set 600 to all config files and 700 to all sub directories
 echo -e "\n\nSetting permissions"
