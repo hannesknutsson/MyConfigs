@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 #
 #	Creates links from the home directory to the configuration files in the configs directory
 #

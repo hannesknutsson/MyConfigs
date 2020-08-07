@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 #	Installs a set of packages defined in the file "packages" using whatever package manager is available.
 #
