@@ -11,6 +11,10 @@ elif [[ `command -v yum` ]]
 then
 	echo -e "\n\t* yum detected. Installing packages using yum...\n"
 	yum install -y --skip-broken `cat packages`
+elif [[ `command -v pacman` ]]
+then
+	echo -e "\n\t* pacman detected. Installing packages using pacman...\n"
+	pacman -S `cat packages` --noconfirm
 else
 	echo -e "\n\t* Could not find any package manager. Canceling...\n"
 fi
