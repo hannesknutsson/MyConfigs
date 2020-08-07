@@ -20,5 +20,4 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
-#ABOVE STUFF IS SET UP BY OH MY ZSH (???) my configs below this line.
-. ~/.aliases
+. ~/.generic_rc

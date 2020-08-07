@@ -1,10 +1,5 @@
 #Central file for all aliases (no matter what shell I use)
 
-# Include any local aliases if present
-if [ -f /etc/bashrc ]; then
-	. ~/.aliases_local
-fi
-
 # ls
 alias ll='ls -alF'
 alias la='ls -A'

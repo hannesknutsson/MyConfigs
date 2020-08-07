@@ -80,6 +80,7 @@ link_conf_file	$CONF_PATH/.bashrc			$HOME/.bashrc
 #OTHER -------------------------------------------------------------------------
 echo -e  "\n * Misc configs..."
 link_conf_file	$CONF_PATH/.selected_editor		$HOME/.selected_editor
+link_conf_file	$CONF_PATH/.generic_rc			$HOME/.generic_rc
 link_conf_file	$CONF_PATH/.aliases			$HOME/.aliases
 
 #Set 600 to all config files and 700 to all sub directories
