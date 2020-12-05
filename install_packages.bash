@@ -27,5 +27,5 @@ then
 	echo -e "\n\t* pacman detected. Installing packages using pacman...\n"
 	pacman -S --noconfirm $PACKAGES
 else
-	echo -e "\n\t* Could not find any package manager. Canceling...\n"
+	echo -e "\n\t* Could not find any package manager. Concider adding it to this script. Canceling...\n"
 fi

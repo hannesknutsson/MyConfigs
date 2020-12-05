@@ -16,9 +16,6 @@ then
 	echo "All prerequisites are available!"
 else
 	echo "Install zsh and wget first..."
-	echo -e "Debian based:\tapt install -y zsh wget"
-	echo -e "RHEL based:\tyum install -y zsh wget"
-
 	exit 1337
 fi
 
@@ -26,4 +23,4 @@ fi
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 #Change default shell
-usermod -s /bin/zsh $USER
+chsh -s /bin/zsh
