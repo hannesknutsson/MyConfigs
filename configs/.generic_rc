@@ -9,4 +9,7 @@ if [ -f ~/.aliases_local ]; then
 fi
 
 #Show some dank stats
-neofetch
+if command -v neofetch &> /dev/null
+then
+	neofetch
+fi
