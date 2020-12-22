@@ -23,4 +23,5 @@ fi
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
 
 #Change default shell
+echo "Script will ask for your password to be able to set your login shell."
 chsh -s /bin/zsh

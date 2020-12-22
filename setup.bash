@@ -52,7 +52,7 @@ link_conf_file	$CONF_PATH/.gitignore_global		$HOME/.gitignore_global
 echo -e "\n * SSH..."
 SSH_DIR=$HOME/.ssh
 SSH_CONFIG=$SSH_DIR/config
-SSH_CONFIG_LOCAL=$HOME/.config_local
+SSH_CONFIG_LOCAL=$SSH_DIR/.config_local
 
 mkdir $SSH_DIR 2> /dev/null
 move_if_regular_file $SSH_CONFIG $SSH_CONFIG_LOCAL
