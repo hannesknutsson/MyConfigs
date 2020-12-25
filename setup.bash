@@ -82,6 +82,10 @@ echo -e "\n * KONSOLE..."
 link_conf_file	$CONF_PATH/.local/share/konsole/Hanke.profile	$HOME/.local/share/konsole/Hanke.profile
 link_conf_file	$CONF_PATH/.config/konsolerc			$HOME/.config/konsolerc
 
+#i3 ----------------------------------------------------------------------------
+echo -e "\n * i3..."
+link_conf_file	$CONF_PATH/.config/i3/config		$HOME/.config/i3/config
+
 #OTHER -------------------------------------------------------------------------
 echo -e  "\n * Misc configs..."
 link_conf_file	$CONF_PATH/.selected_editor		$HOME/.selected_editor
