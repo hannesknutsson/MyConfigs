@@ -1,0 +1,19 @@
+[Desktop Entry]
+DefaultProfile=Hanke.profile
+
+[Favorite Profiles]
+Favorites=
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+Height 1080=1059
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAAnwAAAQRAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Width 1920=1918
+
+[Open-with settings]
+CompletionMode=1
+History=
