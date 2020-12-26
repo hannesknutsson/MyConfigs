@@ -36,7 +36,7 @@ link_conf_file() {
 
 #Script start ------------------------------------------------------------------
 
-echo -e "\nLinking configs from $HOME to $CONF_PATH"
+echo -e "Configs will be linked from $HOME to $CONF_PATH\n"
 
 #Make sure directories exist ---------------------------------------------------
 
@@ -45,17 +45,17 @@ mkdir $HOME/.local 2> /dev/null
 mkdir $HOME/.local/share 2> /dev/null
 
 #VIM ---------------------------------------------------------------------------
-echo -e "\n * VIM..."
+echo -e " * VIM"
 link_conf_file	$CONF_PATH/.vimrc 			$HOME/.vimrc
 link_conf_file	$CONF_PATH/.ideavimrc 			$HOME/.ideavimrc
 
 #GIT ---------------------------------------------------------------------------
-echo -e "\n * GIT..."
+echo -e " * GIT"
 link_conf_file	$CONF_PATH/.gitconfig 			$HOME/.gitconfig
 link_conf_file	$CONF_PATH/.gitignore_global		$HOME/.gitignore_global
 
 #SSH ---------------------------------------------------------------------------
-echo -e "\n * SSH..."
+echo -e " * SSH"
 SSH_DIR=$HOME/.ssh
 SSH_CONFIG=$SSH_DIR/config
 SSH_CONFIG_LOCAL=$SSH_DIR/.config_local
@@ -76,35 +76,33 @@ link_conf_file	$CONF_PATH/.ssh/known_hosts_global	$HOME/.ssh/known_hosts_global
 link_conf_file	$CONF_PATH/.ssh/config 			$HOME/.ssh/config
 
 #ZSH ---------------------------------------------------------------------------
-echo -e "\n * ZSH..."
+echo -e " * ZSH"
 link_conf_file	$CONF_PATH/.zshrc			$HOME/.zshrc
 
 #BASH --------------------------------------------------------------------------
-echo -e "\n * BASH..."
+echo -e " * BASH"
 link_conf_file	$CONF_PATH/.bashrc			$HOME/.bashrc
 
 #KONSOLE -----------------------------------------------------------------------
-echo -e "\n * KONSOLE..."
+echo -e " * KONSOLE"
 mkdir $HOME/.local/share/konsole 2> /dev/null
 link_conf_file	$CONF_PATH/.local/share/konsole/Hanke.profile	$HOME/.local/share/konsole/Hanke.profile
 link_conf_file	$CONF_PATH/.config/konsolerc			$HOME/.config/konsolerc
 
 #i3 ----------------------------------------------------------------------------
-echo -e "\n * i3..."
+echo -e " * i3"
 mkdir $HOME/.config/i3 2> /dev/null
 link_conf_file	$CONF_PATH/.config/i3/config		$HOME/.config/i3/config
 
 #OTHER -------------------------------------------------------------------------
-echo -e  "\n * Misc configs..."
+echo -e  " * Misc configs"
 link_conf_file	$CONF_PATH/.selected_editor		$HOME/.selected_editor
 link_conf_file	$CONF_PATH/.generic_rc			$HOME/.generic_rc
 link_conf_file	$CONF_PATH/.aliases			$HOME/.aliases
 
 #Set 600 to all config files and 700 to all sub directories
-echo -e "\n\nSetting permissions"
+echo -e "\nSetting permissions"
 find $CONF_PATH -type f -exec chmod 600 -- {} +
 find $CONF_PATH -type d -exec chmod 700 -- {} +
 
 #Script done -------------------------------------------------------------------
-
-echo -e "\nDone :)\n"
