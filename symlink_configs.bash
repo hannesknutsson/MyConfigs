@@ -38,6 +38,12 @@ link_conf_file() {
 
 echo -e "\nLinking configs from $HOME to $CONF_PATH"
 
+#Make sure directories exist ---------------------------------------------------
+
+mkdir $HOME/.config 2> /dev/null
+mkdir $HOME/.local 2> /dev/null
+mkdir $HOME/.local/share 2> /dev/null
+
 #VIM ---------------------------------------------------------------------------
 echo -e "\n * VIM..."
 link_conf_file	$CONF_PATH/.vimrc 			$HOME/.vimrc
@@ -79,11 +85,13 @@ link_conf_file	$CONF_PATH/.bashrc			$HOME/.bashrc
 
 #KONSOLE -----------------------------------------------------------------------
 echo -e "\n * KONSOLE..."
+mkdir $HOME/.local/share/konsole 2> /dev/null
 link_conf_file	$CONF_PATH/.local/share/konsole/Hanke.profile	$HOME/.local/share/konsole/Hanke.profile
 link_conf_file	$CONF_PATH/.config/konsolerc			$HOME/.config/konsolerc
 
 #i3 ----------------------------------------------------------------------------
 echo -e "\n * i3..."
+mkdir $HOME/.config/i3 2> /dev/null
 link_conf_file	$CONF_PATH/.config/i3/config		$HOME/.config/i3/config
 
 #OTHER -------------------------------------------------------------------------
