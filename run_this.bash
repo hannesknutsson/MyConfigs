@@ -14,8 +14,6 @@ then
   sudo $INST/install_packages.bash $PACK/tui_setup
 fi
 
-  
-
 whiptail \
 --separate-output \
 --title 'Select what scripts to run' \
@@ -54,4 +52,3 @@ do
   esac
 done
 
-echo haha

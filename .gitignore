@@ -1,4 +1,5 @@
 #Ignore local configurations
 **\_local
 
-.installations.log
+#Ignore script logs
+logs/**
