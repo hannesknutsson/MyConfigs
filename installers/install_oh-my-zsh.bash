@@ -3,6 +3,9 @@
 #	Installs Oh My Zsh!
 #
 
+echo "----------------------------------------"
+date
+
 #Checks if Oh My Zsh! is installed and cancels installation if already installed.
 if [[ -d $HOME/.oh-my-zsh ]]
 then

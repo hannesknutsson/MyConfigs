@@ -183,6 +183,12 @@ bar {
 #Start clipboard manager
 exec parcellite
 
+#Start pulseaudio
+exec pulseaudio
+
+#Start Nextcloud client
+exec nextcloud
+
 #Color selection
 # https://i3wm.org/docs/userguide.html#_changing_colors
 # class                 border  backgr. text    indicator child_border
