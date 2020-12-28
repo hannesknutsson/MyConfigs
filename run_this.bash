@@ -33,7 +33,7 @@ do
       echo 'Installing command line interface tools...'
       echo $SUDO_MSG
       sudo $INST/install_packages.bash $PACK/default_cli_packages
-      $INST/install_oh-my-zsh.bash 2>&1 >> $LOG_DIR/oh-my-zsh.log
+      $INST/install_oh-my-zsh.bash >> $LOG_DIR/oh-my-zsh.log 2>&1 
       sudo chsh -s `which zsh` $USER
       ;;
     'Install GUI tools')
