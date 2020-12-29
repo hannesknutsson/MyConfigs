@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INST=installers
+INST=scripts
 PACK=packages
 SUDO_MSG='Running script as super user... You may be prompted for your password.'
 LOG_DIR=logs
@@ -45,6 +45,7 @@ do
       echo 'Installing i3 and tools for i3...'
       echo $SUDO_MSG
       sudo $INST/install_packages.bash $PACK/i3_packages
+      sudo $INST/install_i3_tools.bash
       ;;
     'Link configs')
       echo 'Linking configurations to versions handled by Git...'
