@@ -30,6 +30,7 @@ then
 elif [[ `command -v yum` ]]
 then
 	echo -e "\n\t* yum detected. Installing packages using yum..."
+	yum install -y --skip-broken epel-release >> $LOG_LOCATION 2>&1
 	yum install -y --skip-broken $PACKAGES >> $LOG_LOCATION 2>&1
 elif [[ `command -v pacman` ]]
 then
