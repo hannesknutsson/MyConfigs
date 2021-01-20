@@ -199,4 +199,5 @@ for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
 #Set shortcut for i3 lock
-bindsym Control+mod1+l exec i3lock-fancy -g
+bindsym Control+mod1+l exec systemctl suspend
+
