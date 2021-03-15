@@ -1,7 +1,7 @@
 #Central file for all aliases (no matter what shell I use)
 
 # ls
-alias ll='ls -alF'
+alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
