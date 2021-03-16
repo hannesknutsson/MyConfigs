@@ -21,8 +21,8 @@ whiptail \
 --title 'Select what scripts to run' \
 --ok-button 'Run selected scripts' \
 --checklist 'Select what scripts to run' 10 100 4 \
-"Install CLI tools" "Tools for command line environments" on \
-"Install GUI tools" "Tools for graphical environments" on \
+"Install CLI tools" "Tools for command line environments" off \
+"Install GUI tools" "Tools for graphical environments" off \
 "Install i3 setup" "i3 window manager with dependencies and i3 specific tools" off \
 "Link configs" "Create symlinks replacing old configs with configs handled by Git" on \
 3>&1 1>&2 2>&3 \
