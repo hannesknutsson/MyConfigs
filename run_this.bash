@@ -37,9 +37,11 @@ do
       sudo chsh -s `which zsh` $USER
       ;;
     'Install GUI tools')
-      echo 'Installing grapgical tools...'
+      echo 'Installing graphical tools from repositories...'
       echo $SUDO_MSG
       sudo $INST/install_packages.bash $PACK/default_gui_packages
+      echo -e 'Installing graphical tools from AppImages...\n'
+      $INST/install_appimages.bash
       ;;
     'Install i3 setup')
       echo 'Installing i3 and tools for i3...'
