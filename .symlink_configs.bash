@@ -99,6 +99,9 @@ echo -e  " * Misc configs"
 link_conf_file	$CONF_PATH/.selected_editor		$HOME/.selected_editor
 link_conf_file	$CONF_PATH/.generic_rc			$HOME/.generic_rc
 link_conf_file	$CONF_PATH/.aliases			$HOME/.aliases
+link_conf_file	$CONF_PATH/.profile			$HOME/.profile
+link_conf_file	$CONF_PATH/.zprofile			$HOME/.zprofile
+link_conf_file	$CONF_PATH/.generic_profile		$HOME/.generic_profile
 
 #Set 600 to all config files and 700 to all sub directories
 echo -e "\nSetting permissions"
