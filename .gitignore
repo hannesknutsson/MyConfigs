@@ -3,3 +3,6 @@
 
 #Ignore script logs
 logs/**
+
+#Ignore local known ssh hosts
+**/known_hosts
