@@ -4,6 +4,7 @@ tmux
 vim
 htop
 git
-sl
 neofetch
-
+nmap
+ncat
+binutils
