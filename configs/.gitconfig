@@ -7,7 +7,6 @@
 
 [credential "https://github.com"]
 	username = hannesknutsson
-	helper = store
 
 [core]
 	editor = vim
