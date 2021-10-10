@@ -8,3 +8,7 @@ alias l='ls -CF'
 # docker
 alias down='docker-compose down'
 alias up='docker-compose up -d'
+
+# microk8s
+alias kubectl='microk8s kubectl'
+alias k='microk8s kubectl'
