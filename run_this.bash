@@ -24,17 +24,21 @@ whiptail \
 "Install CLI tools" "Tools for command line environments" off \
 "Install GUI tools" "Tools for graphical environments" off \
 "Install i3 setup" "i3 window manager with dependencies and i3 specific tools" off \
-"Link configs" "Create symlinks replacing old configs with configs handled by Git" on \
+"Link configs" "Create symlinks replacing old configs with configs handled by Git" off \
 3>&1 1>&2 2>&3 \
 | while read CHOICE
 do
   case $CHOICE in
     'Install CLI tools')
-      echo 'Installing command line interface tools...'
+      echo 'Installing command line interface tools from package list...'
       echo $SUDO_MSG
       sudo $INST/install_packages.bash $PACK/default_cli_packages
+      echo 'Installing ZSH...'
+      echo ''
       $INST/install_oh-my-zsh.bash >> $LOG_DIR/oh-my-zsh.log 2>&1 
       sudo chsh -s `which zsh` $USER
+      echo 'Installing latest version of k8s tools...'
+      $INST/install_k8s_tools.bash
       ;;
     'Install GUI tools')
       echo 'Installing graphical tools from repositories...'

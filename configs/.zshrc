@@ -12,13 +12,16 @@ CASE_SENSITIVE="false"
 # Uncomment the following line to enable command auto-correction.
 #ENABLE_CORRECTION="true"
 
-plugins=(git)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+. ~/.generic_rc
+
 export EDITOR='vim'
 setopt HIST_IGNORE_SPACE
 
-. ~/.generic_rc
+source <(kubectl completion zsh)
+complete -F __start_kubectl k

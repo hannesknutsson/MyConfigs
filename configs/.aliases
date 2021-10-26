@@ -9,7 +9,6 @@ alias l='ls -CF'
 alias down='docker-compose down'
 alias up='docker-compose up -d'
 
-# microk8s
-alias kubectl='microk8s kubectl'
-alias k='microk8s kubectl'
-alias pods='microk8s kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-namespaces | tail -n +2 | sort'
+# k8s
+alias k='kubectl'
+alias pods='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-namespaces | tail -n +2 | sort'
