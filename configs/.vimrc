@@ -4,7 +4,7 @@
 set number
 set cursorline
 set cursorcolumn
-set nowrap
+set wrap
 highlight cursorline cterm=bold ctermbg=darkgrey 
 highlight cursorcolumn ctermbg=darkgrey 
 
