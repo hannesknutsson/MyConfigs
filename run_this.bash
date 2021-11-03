@@ -6,27 +6,38 @@ SUDO_MSG='Running script as super user... You may be prompted for your password.
 LOG_DIR=logs
 mkdir $LOG_DIR 2> /dev/null
 
-if ! command -v whiptail &> /dev/null
-then
-  #Install whiptail so that we can continue the script
-  echo "System is missing the whiptail package. This script uses whiptail to display text based user interfaces."
-  echo "Press enter to attempt installing it, or Ctrl+C to stop the script. Installation will be run using sudo."
-  read
-  echo $SUDO_MSG
-  sudo $INST/install_packages.bash $PACK/tui_setup
-fi
+case $1 in
+  'cli')
+    SELECTION=$(echo -e "Install CLI tools\nLink configs")
+  ;;
+  'gui')
+    SELECTION=$(echo -e "Install GUI tools\nLink configs")
+  ;;
+  *)
+    if ! command -v whiptail &> /dev/null
+    then
+      #Install whiptail so that we can continue the script
+      echo "System is missing the whiptail package. This script uses whiptail to display text based user interfaces."
+      echo "Press enter to attempt installing it, or Ctrl+C to stop the script. Installation will be run using sudo."
+      read
+      echo $SUDO_MSG
+      sudo $INST/install_packages.bash $PACK/tui_setup
+    fi
 
-whiptail \
---separate-output \
---title 'Select what scripts to run' \
---ok-button 'Run selected scripts' \
---checklist 'Select what scripts to run' 10 100 4 \
-"Install CLI tools" "Tools for command line environments" off \
-"Install GUI tools" "Tools for graphical environments" off \
-"Install i3 setup" "i3 window manager with dependencies and i3 specific tools" off \
-"Link configs" "Create symlinks replacing old configs with configs handled by Git" off \
-3>&1 1>&2 2>&3 \
-| while read CHOICE
+    SELECTION=$(whiptail \
+    --separate-output \
+    --title 'Select what scripts to run' \
+    --ok-button 'Run selected scripts' \
+    --checklist 'Select what scripts to run' 10 100 4 \
+    "Install CLI tools" "Tools for command line environments" off \
+    "Install GUI tools" "Tools for graphical environments" off \
+    "Install i3 setup" "i3 window manager with dependencies and i3 specific tools" off \
+    "Link configs" "Create symlinks replacing old configs with configs handled by Git" off \
+    3>&1 1>&2 2>&3)
+  ;;
+esac
+
+echo "$SELECTION" | while read CHOICE
 do
   case $CHOICE in
     'Install CLI tools')
