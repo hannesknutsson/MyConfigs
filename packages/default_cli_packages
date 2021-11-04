@@ -9,3 +9,4 @@ nmap
 ncat
 binutils
 curl
+inetutils-ping
