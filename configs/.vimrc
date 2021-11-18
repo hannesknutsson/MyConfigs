@@ -1,5 +1,3 @@
-"	Vim configuration file
-
 " Visuals
 set number
 set cursorline
@@ -19,6 +17,10 @@ set tabstop=4
 set shiftwidth=4
 " on pressing tab, insert 4 spaces
 set expandtab
-" indent to the same depth as previous line
-"set autoindent
         
+" PLUGINS
+
+call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-gitgutter'
+call plug#end()
+

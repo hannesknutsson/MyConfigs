@@ -50,6 +50,11 @@ do
       sudo chsh -s `which zsh` $USER
       echo 'Installing latest version of k8s tools...'
       $INST/install_k8s_tools.bash
+      echo ''
+      echo 'Installing vim plugins...'
+      echo ''
+      curl -s -o "$HOME/.vim/autoload/plug.vim" --create-dirs -LO "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+      vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
       ;;
     'Install GUI tools')
       echo 'Installing graphical tools from repositories...'
