@@ -7,4 +7,4 @@ Terminal=false
 Exec=yubioauth
 Name=Yubico Authenticator
 Comment=TOTP authenticator for Yubikey
-#Icon=icon path here
+Icon=$HOME/.local/share/applications/icons/yubioauth.png

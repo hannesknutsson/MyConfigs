@@ -38,3 +38,5 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 "   Make completion scroll down instead of up
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+"   Fix signal gutter background
+highlight SignColumn ctermbg=NONE
