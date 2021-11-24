@@ -1,10 +1,10 @@
 " Visuals
 set number
-" set cursorline
-" set cursorcolumn
+set cursorline
+set cursorcolumn
 " set wrap
-" highlight cursorline cterm=bold ctermbg=darkgrey
-" highlight cursorcolumn ctermbg=darkgrey
+highlight cursorline cterm=bold ctermbg=darkgrey
+highlight cursorcolumn ctermbg=darkgrey
 
 " Macros
 imap jj <ESC>
