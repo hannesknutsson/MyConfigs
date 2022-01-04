@@ -40,3 +40,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "   Fix signal gutter background
 highlight SignColumn ctermbg=NONE
+
+"   Center current line
+set scrolloff=999

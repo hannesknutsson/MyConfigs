@@ -5,6 +5,9 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# shred
+alias shred='shred -n 100 -z -v'
+
 # docker
 alias down='docker-compose down'
 alias up='docker-compose up -d'
