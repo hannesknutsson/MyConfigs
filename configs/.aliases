@@ -15,6 +15,7 @@ alias up='docker-compose up -d'
 # k8s
 alias k='kubectl'
 alias pods='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-namespaces | tail -n +2 | sort'
+alias getdashtoken='kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"'
 
 # Funny docker stuff
 alias run='docker run --rm -it'
