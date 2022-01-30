@@ -23,5 +23,5 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 setopt HIST_IGNORE_SPACE
 
-source <(kubectl completion zsh)
+source <(~/.local/bin/kubectl completion zsh)
 complete -F __start_kubectl k

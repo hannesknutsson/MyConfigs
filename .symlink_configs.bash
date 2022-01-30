@@ -94,6 +94,15 @@ echo -e " * i3"
 mkdir $HOME/.config/i3 2> /dev/null
 link_conf_file	$CONF_PATH/.config/i3/config		$HOME/.config/i3/config
 
+#awesome WM --------------------------------------------------------------------
+echo -e " * awesome WM"
+link_conf_file	$CONF_PATH/.config/awesome/rc.lua	$HOME/.config/awesome/rc.lua
+
+#autorandr ---------------------------------------------------------------------
+echo -e " * autorandr"
+link_conf_file	$CONF_PATH/.config/autorandr/3-displays/setup	$HOME/.config/autorandr/3-displays/setup
+link_conf_file	$CONF_PATH/.config/autorandr/3-displays/config	$HOME/.config/autorandr/3-displays/config
+
 #OTHER -------------------------------------------------------------------------
 echo -e  " * Misc configs"
 link_conf_file	$CONF_PATH/.selected_editor		$HOME/.selected_editor
