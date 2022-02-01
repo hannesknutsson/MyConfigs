@@ -10,3 +10,5 @@ ncat
 binutils
 curl
 inetutils-ping
+python3
+psmisc

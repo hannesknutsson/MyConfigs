@@ -340,7 +340,10 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- My bindings
+    awful.key({}, "Print", function() awful.util.spawn("scrot '%Y-%m-%d_$wx$h.png' -e 'mv --backup=t $f ~/Pictures/Screenshots/'")end),
+    awful.key({}, "Scroll_Lock", function() awful.util.spawn("scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv --backup=t $f ~/Pictures/Screenshots/'")end)
 )
 
 clientkeys = gears.table.join(
@@ -467,7 +470,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                     size_hints_honor = false
      }
     },
 
@@ -588,10 +592,38 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.util.spawn("setxkbmap -layout \"se\"")
 awful.util.spawn("autorandr --change 3-displays")
 awful.util.spawn("unclutter")
+
+
+
+
+awful.util.spawn("compton")
+awful.util.spawn("yubioauth")
+awful.util.spawn("discord")
+awful.util.spawn("firefox")
+awful.util.spawn("steam")
+awful.util.spawn("spotify")
+awful.util.spawn("pasystray")
+
+
+
+
+client.connect_signal("focus", function(c)
+        if c.class == "UXTerm" then
+            c.border_color = beautiful.border_focus
+            c.opacity=0.9
+        end
+    end)
+    client.connect_signal("unfocus", function(c)
+        if c.class == "UXTerm" then
+            c.border_color = beautiful.border_normal
+            c.opacity=0.75
+        end
+    end)
+
+
+
+
 awful.util.spawn("feh --bg-scale ~/.config/awesome/background.jpg")
-
-
-
 
 
 
