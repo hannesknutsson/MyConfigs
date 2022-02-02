@@ -96,7 +96,9 @@ link_conf_file	$CONF_PATH/.config/i3/config		$HOME/.config/i3/config
 
 #awesome WM --------------------------------------------------------------------
 echo -e " * awesome WM"
-link_conf_file	$CONF_PATH/.config/awesome/rc.lua	$HOME/.config/awesome/rc.lua
+link_conf_file	$CONF_PATH/.config/awesome/rc.lua	    $HOME/.config/awesome/rc.lua
+link_conf_file	$CONF_PATH/.config/awesome/theme.lua	$HOME/.config/awesome/theme.lua
+link_conf_file	$CONF_PATH/.config/awesome/background.jpg	    $HOME/.config/awesome/background.jpg
 
 #autorandr ---------------------------------------------------------------------
 echo -e " * autorandr"

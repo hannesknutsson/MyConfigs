@@ -179,12 +179,94 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-awful.screen.connect_for_each_screen(function(s)
-    -- Wallpaper
-    set_wallpaper(s)
+-- awful.screen.connect_for_each_screen(function(s)
+--     -- Wallpaper
+--     set_wallpaper(s)
+--
+--     -- Each screen has its own tag table.
+--     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+--
+--     -- Create a promptbox for each screen
+--     s.mypromptbox = awful.widget.prompt()
+--     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
+--     -- We need one layoutbox per screen.
+--     s.mylayoutbox = awful.widget.layoutbox(s)
+--     s.mylayoutbox:buttons(gears.table.join(
+--                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
+--                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
+--                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
+--                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+--     -- Create a taglist widget
+--     s.mytaglist = awful.widget.taglist {
+--         screen  = s,
+--         filter  = awful.widget.taglist.filter.all,
+--         buttons = taglist_buttons
+--     }
+--
+--     -- Create a tasklist widget
+--     s.mytasklist = awful.widget.tasklist {
+--         screen  = s,
+--         filter  = awful.widget.tasklist.filter.currenttags,
+--         buttons = tasklist_buttons
+--     }
+--
+--     -- Create the wibox
+--     s.mywibox = awful.wibar({ position = "top", screen = s })
+--
+--     -- Add widgets to the wibox
+--     s.mywibox:setup {
+--         layout = wibox.layout.align.horizontal,
+--         { -- Left widgets
+--             layout = wibox.layout.fixed.horizontal,
+--             mylauncher,
+--             s.mytaglist,
+--             s.mypromptbox,
+--         },
+--         s.mytasklist, -- Middle widget
+--         { -- Right widgets
+--             layout = wibox.layout.fixed.horizontal,
+--             wibox.widget.systray(),
+--             mytextclock,
+--             s.mylayoutbox,
+--         },
+--     }
+-- end)
+-- }}}
 
+-- Replacement for the above code in order to get unique tags for all monitors
+
+awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    if (s.index == 1) then
+        awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" } , s, awful.layout.layouts[1])
+    elseif (screen:count() == 3) then
+        if (s.index == 2) then
+            root.tags()[7].screen = s
+            root.tags()[7]:view_only()
+            root.tags()[8].screen = s
+            root.tags()[8]:view_only()
+            root.tags()[9].screen = s
+            root.tags()[9]:view_only()
+        elseif (s.index == 3) then
+            root.tags()[4].screen = s
+            root.tags()[4]:view_only()
+            root.tags()[5].screen = s
+            root.tags()[5]:view_only()
+            root.tags()[6].screen = s
+            root.tags()[6]:view_only()
+        end
+    elseif (screen:count() == 2) then
+        if (s.index == 2) then
+            root.tags()[6].screen = s
+            root.tags()[6]:view_only()
+            root.tags()[7].screen = s
+            root.tags()[7]:view_only()
+            root.tags()[8].screen = s
+            root.tags()[8]:view_only()
+            root.tags()[9].screen = s
+            root.tags()[9]:view_only()
+        end
+    end
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -231,7 +313,8 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
+
+-- end custom code segment
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
@@ -393,52 +476,103 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
+-- for i = 1, 9 do
+--     globalkeys = gears.table.join(globalkeys,
+--         -- View tag only.
+--         awful.key({ modkey }, "#" .. i + 9,
+--                   function ()
+--                         local screen = awful.screen.focused()
+--                         local tag = screen.tags[i]
+--                         if tag then
+--                            tag:view_only()
+--                         end
+--                   end,
+--                   {description = "view tag #"..i, group = "tag"}),
+--         -- Toggle tag display.
+--         awful.key({ modkey, "Control" }, "#" .. i + 9,
+--                   function ()
+--                       local screen = awful.screen.focused()
+--                       local tag = screen.tags[i]
+--                       if tag then
+--                          awful.tag.viewtoggle(tag)
+--                       end
+--                   end,
+--                   {description = "toggle tag #" .. i, group = "tag"}),
+--         -- Move client to tag.
+--         awful.key({ modkey, "Shift" }, "#" .. i + 9,
+--                   function ()
+--                       if client.focus then
+--                           local tag = client.focus.screen.tags[i]
+--                           if tag then
+--                               client.focus:move_to_tag(tag)
+--                           end
+--                      end
+--                   end,
+--                   {description = "move focused client to tag #"..i, group = "tag"}),
+--         -- Toggle tag on focused client.
+--         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+--                   function ()
+--                       if client.focus then
+--                           local tag = client.focus.screen.tags[i]
+--                           if tag then
+--                               client.focus:toggle_tag(tag)
+--                           end
+--                       end
+--                   end,
+--                   {description = "toggle focused client on tag #" .. i, group = "tag"})
+--     )
+-- end
+
+-- Custom code replacing default code from above
+
 for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
-        -- View tag only.
-        awful.key({ modkey }, "#" .. i + 9,
-                  function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
-                        if tag then
-                           tag:view_only()
-                        end
-                  end,
-                  {description = "view tag #"..i, group = "tag"}),
+    -- View tag only.
+    awful.key({ modkey }, "#" .. i + 9,
+    function ()
+        local tag = root.tags()[i]
+        local screen = tag.screen
+        if tag then
+            tag:view_only()
+            awful.screen.focus(screen)
+        end
+    end,
+    {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
-                  function ()
-                      local screen = awful.screen.focused()
-                      local tag = screen.tags[i]
-                      if tag then
-                         awful.tag.viewtoggle(tag)
-                      end
-                  end,
-                  {description = "toggle tag #" .. i, group = "tag"}),
-        -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                     end
-                  end,
-                  {description = "move focused client to tag #"..i, group = "tag"}),
+    awful.key({ modkey, "Control" }, "#" .. i + 9,
+    function ()
+        local tag = root.tags()[i]
+        if tag then
+            awful.tag.viewtoggle(tag)
+        end
+    end,
+    {description = "toggle tag #" .. i, group = "tag"}),
+    -- Move client to tag.
+    awful.key({ modkey, "Shift" }, "#" .. i + 9,
+    function ()
+        if client.focus then
+            local tag = root.tags()[i]
+            if tag then
+                client.focus:move_to_tag(tag)
+            end
+        end
+    end,
+    {description = "move focused client to tag #"..i, group = "tag"}),
         -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"})
+    awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+    function ()
+        if client.focus then
+            local tag = root.tags()[i]
+            if tag then
+                client.focus:toggle_tag(tag)
+            end
+        end
+    end,
+    {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
+
+-- end custom code segment
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
@@ -507,9 +641,20 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
+    -- lmao pls don't do that. Titlebars are hideous
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
     },
+
+    -- Set Firefox to always map on the tag index 1.
+    { rule = { class = "Steam" },
+    properties = { screen = root.tags()[3].screen, tag = root.tags()[3].name } },
+    -- Set discord to always map on tag index 3.
+    { rule = { class = "discord" },
+    properties = { screen = root.tags()[7].screen, tag = root.tags()[7].name } },
+    -- Set discord to always map on tag index 3.
+    { rule = { class = "Spotify" },
+    properties = { screen = root.tags()[5].screen, tag = root.tags()[5].name } },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
@@ -603,6 +748,7 @@ awful.util.spawn("firefox")
 awful.util.spawn("steam")
 awful.util.spawn("spotify")
 awful.util.spawn("pasystray")
+awful.util.spawn("nextcloud")
 
 
 
