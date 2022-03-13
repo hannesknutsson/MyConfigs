@@ -241,19 +241,19 @@ awful.screen.connect_for_each_screen(function(s)
         awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" } , s, awful.layout.layouts[1])
     elseif (screen:count() == 3) then
         if (s.index == 2) then
-            root.tags()[7].screen = s
-            root.tags()[7]:view_only()
-            root.tags()[8].screen = s
-            root.tags()[8]:view_only()
+            root.tags()[3].screen = s
+            root.tags()[3]:view_only()
+            root.tags()[6].screen = s
+            root.tags()[6]:view_only()
             root.tags()[9].screen = s
             root.tags()[9]:view_only()
         elseif (s.index == 3) then
-            root.tags()[4].screen = s
-            root.tags()[4]:view_only()
+            root.tags()[2].screen = s
+            root.tags()[2]:view_only()
             root.tags()[5].screen = s
             root.tags()[5]:view_only()
-            root.tags()[6].screen = s
-            root.tags()[6]:view_only()
+            root.tags()[8].screen = s
+            root.tags()[8]:view_only()
         end
     elseif (screen:count() == 2) then
         if (s.index == 2) then
@@ -293,6 +293,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
+--    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal })
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- Add widgets to the wibox
@@ -425,8 +426,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     -- My bindings
-    awful.key({}, "Print", function() awful.util.spawn("scrot '%Y-%m-%d_$wx$h.png' -e 'mv --backup=t $f ~/Pictures/Screenshots/'")end),
-    awful.key({}, "Scroll_Lock", function() awful.util.spawn("scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv --backup=t $f ~/Pictures/Screenshots/'")end)
+    awful.key({}, "Print", function() awful.util.spawn("scrot '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f ; mv --backup=t $f ~/Pictures/Screenshots/'")end),
+    awful.key({}, "Scroll_Lock", function() awful.util.spawn("scrot -s '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f ; mv --backup=t $f ~/Pictures/Screenshots/'")end),
+    awful.key({}, "Home", function() awful.util.spawn("xautolock -locknow")end),
+    awful.key({ modkey }, "e", function() awful.util.spawn("nautilus --new-window")end),
+    awful.key({}, "Caps_Lock", function() awful.util.spawn("rofi -show window")end)
 )
 
 clientkeys = gears.table.join(
@@ -648,10 +652,10 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the tag index 1.
     { rule = { class = "Steam" },
-    properties = { screen = root.tags()[3].screen, tag = root.tags()[3].name } },
+    properties = { screen = root.tags()[7].screen, tag = root.tags()[7].name } },
     -- Set discord to always map on tag index 3.
     { rule = { class = "discord" },
-    properties = { screen = root.tags()[7].screen, tag = root.tags()[7].name } },
+    properties = { screen = root.tags()[3].screen, tag = root.tags()[3].name, fullscreen = true } },
     -- Set discord to always map on tag index 3.
     { rule = { class = "Spotify" },
     properties = { screen = root.tags()[5].screen, tag = root.tags()[5].name } },
@@ -735,13 +739,12 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- awful.spawn.with_shell("setxkbmap -layout \"se\" -option \"grp:alt_shift_toggle\"")
 awful.util.spawn("setxkbmap -layout \"se\"")
-awful.util.spawn("autorandr --change 3-displays")
 awful.util.spawn("unclutter")
 
 
 
 
-awful.util.spawn("compton")
+awful.util.spawn("picom --experimental-backends")
 awful.util.spawn("yubioauth")
 awful.util.spawn("discord")
 awful.util.spawn("firefox")
@@ -749,14 +752,21 @@ awful.util.spawn("steam")
 awful.util.spawn("spotify")
 awful.util.spawn("pasystray")
 awful.util.spawn("nextcloud")
+awful.util.spawn("xautolock -time 10 -locker 'i3lock-fancy' -killtime 10 -killer 'xset dpms force off'")
+awful.util.spawn("bash -c 'sleep 5 && feh --bg-scale ~/.config/awesome/background.jpg'")
+awful.util.spawn("numlockx on")
+awful.util.spawn("syncthing")
+
+-- awful.util.spawn("autorandr --change 3-displays")
 
 
+wibox.widget.systray.opacity = 0
 
 
 client.connect_signal("focus", function(c)
         if c.class == "UXTerm" then
             c.border_color = beautiful.border_focus
-            c.opacity=0.9
+            c.opacity=0.85
         end
     end)
     client.connect_signal("unfocus", function(c)
@@ -767,9 +777,9 @@ client.connect_signal("focus", function(c)
     end)
 
 
+beautiful.gap_single_client = false
 
 
-awful.util.spawn("feh --bg-scale ~/.config/awesome/background.jpg")
 
 
 
