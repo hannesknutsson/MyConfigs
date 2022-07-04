@@ -15,3 +15,8 @@ if [ -d "/snap/bin" ] ; then
     PATH="/snap/bin:$PATH"
 fi
 
+# set PATH so it includes snap bin if it exists
+if [ -d "/opt/apache-maven-3.8.5/bin" ] ; then
+    PATH="/opt/apache-maven-3.8.5/bin:$PATH"
+fi
+
