@@ -18,6 +18,14 @@ plugins=(
     docker-compose
     zsh-syntax-highlighting
     zsh-autosuggestions
+    command-not-found
+    gcloud
+    git-auto-fetch
+    helm
+    minikube
+    npm
+    pip
+    kubectl
 )
 
 source $ZSH/oh-my-zsh.sh

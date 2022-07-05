@@ -1,4 +1,4 @@
--- If LuaRocks is installed, make sure that packages installed through it are
+
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
@@ -429,8 +429,8 @@ globalkeys = gears.table.join(
     awful.key({}, "Print", function() awful.util.spawn("scrot '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f ; mv --backup=t $f ~/Pictures/Screenshots/'")end),
     awful.key({}, "Scroll_Lock", function() awful.util.spawn("scrot -s '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f ; mv --backup=t $f ~/Pictures/Screenshots/'")end),
     awful.key({}, "Home", function() awful.util.spawn("xautolock -locknow")end),
-    awful.key({ modkey }, "e", function() awful.util.spawn("nautilus --new-window")end),
-    awful.key({}, "Caps_Lock", function() awful.util.spawn("rofi -show window")end)
+    awful.key({ modkey }, "e", function() awful.util.spawn("nautilus --new-window")end)
+    --    awful.key({}, "Caps_Lock", function() awful.util.spawn("rofi -show window")end)
 )
 
 clientkeys = gears.table.join(
@@ -751,7 +751,6 @@ awful.util.spawn("firefox")
 awful.util.spawn("steam")
 awful.util.spawn("spotify")
 awful.util.spawn("pasystray")
-awful.util.spawn("nextcloud")
 awful.util.spawn("xautolock -time 10 -locker 'i3lock-fancy' -killtime 10 -killer 'xset dpms force off'")
 awful.util.spawn("bash -c 'sleep 5 && feh --bg-scale ~/.config/awesome/background.jpg'")
 awful.util.spawn("numlockx on")
@@ -766,13 +765,13 @@ wibox.widget.systray.opacity = 0
 client.connect_signal("focus", function(c)
         if c.class == "UXTerm" then
             c.border_color = beautiful.border_focus
-            c.opacity=0.85
+            c.opacity=0.95
         end
     end)
     client.connect_signal("unfocus", function(c)
         if c.class == "UXTerm" then
             c.border_color = beautiful.border_normal
-            c.opacity=0.75
+            c.opacity=0.85
         end
     end)
 
