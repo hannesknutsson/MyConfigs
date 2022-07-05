@@ -12,7 +12,13 @@ CASE_SENSITIVE="false"
 # Uncomment the following line to enable command auto-correction.
 #ENABLE_CORRECTION="true"
 
-plugins=(git docker docker-compose)
+plugins=(
+    git
+    docker
+    docker-compose
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 

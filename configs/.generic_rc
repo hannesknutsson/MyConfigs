@@ -14,3 +14,4 @@ then
 	neofetch
 fi
 
+source .generic_profile
