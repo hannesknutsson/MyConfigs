@@ -1,0 +1,21 @@
+---
+
+- name: Install CLI components
+  hosts: 127.0.0.1
+  connection: local
+  become: true
+  tasks:
+
+    - name: Update all packages to their latest version
+      become: true
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+
+    - name: Install packages
+      loop: "{{ lookup('file', 'packages.txt').splitlines() }}"
+      become: true
+      ansible.builtin.package:
+        name: "{{item}}"
+        state: latest
+
