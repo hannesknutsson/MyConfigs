@@ -1,7 +1,7 @@
 zsh
 wget
 tmux
-vim
+neovim
 htop
 git
 neofetch

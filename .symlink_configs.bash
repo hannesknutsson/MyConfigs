@@ -27,6 +27,7 @@ move_if_regular_file() {
 
 #Function for replacing regular files with symbolic links to respective Git handled files. Original file are moved to ~/.old_configs .
 link_conf_file() {
+	mkdir -p $(dirname $2)
 	LINK_DESTINATION=$1
 	LINK_LOCATION=$2
 	mkdir $OLD_CONFS_DIR 2> /dev/null
@@ -48,6 +49,7 @@ mkdir $HOME/.local/share 2> /dev/null
 echo -e " * VIM"
 link_conf_file	$CONF_PATH/.vimrc 			$HOME/.vimrc
 link_conf_file	$CONF_PATH/.ideavimrc 			$HOME/.ideavimrc
+link_conf_file	$CONF_PATH/.config/nvim/init.vim 	$HOME/.config/nvim/init.vim
 
 #GIT ---------------------------------------------------------------------------
 echo -e " * GIT"

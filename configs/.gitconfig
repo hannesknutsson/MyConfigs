@@ -2,7 +2,6 @@
 	path = ~/.gitconfig_local
 
 [user]
-	email = hannes.knutsson@protonmail.com
 	name = Hannes Knutsson
 
 [credential "https://github.com"]
