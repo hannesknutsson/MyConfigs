@@ -1,13 +1,14 @@
 zsh
 wget
 tmux
-vim
+neovim
 htop
 btop
 git
 neofetch
 nmap
 ncat
+netcat
 binutils
 curl
 inetutils-ping
