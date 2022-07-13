@@ -21,3 +21,5 @@ alias getdashtoken='kubectl -n kubernetes-dashboard get secret $(kubectl -n kube
 alias run='docker run --rm -it'
 alias tools='docker run --rm -it hannesknutsson/tools'
 alias tools-fat='docker run --rm -it debian:stable-slim bash -c "apt update -y && apt install -y sudo git curl && git clone https://github.com/hannesknutsson/MyConfigs && cd MyConfigs && ln -snf /usr/share/zoneinfo/$(curl https://ipapi.co/timezone) /etc/localtime && ./run_this.bash cli && cd && source .generic_profile && echo -e \n\n\n && zsh"'
+
+alias cat=batcat
